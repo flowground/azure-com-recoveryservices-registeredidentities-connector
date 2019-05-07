@@ -1,0 +1,57 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "vaultName": {
+            "required": true,
+            "type": "string"
+        },
+        "certificateName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Details of the certificate to be uploaded to the vault.",
+            "properties": {
+                "properties": {
+                    "description": "Raw certificate data.",
+                    "properties": {
+                        "authType": {
+                            "description": "Specifies the authentication type.",
+                            "enum": [
+                                "Invalid",
+                                "ACS",
+                                "AAD",
+                                "AccessControlService",
+                                "AzureActiveDirectory"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "AuthType"
+                            }
+                        },
+                        "certificate": {
+                            "description": "The base64 encoded certificate raw data string",
+                            "format": "byte",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
